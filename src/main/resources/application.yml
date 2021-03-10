@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: wj-api-gateway
+  zipkin:
+    base-url: http://localhost:9411/
+  cloud:
+    gateway:
+      default-filters:
+        - TokenRelay
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8888/auth/realms/workout-journal/protocol/openid-connect/certs
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8888/auth/realms/workout-journal
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: wj-api-gateway
+            client-secret: 61ec338b-949c-436e-ae9b-53c981e9eed1
+            authorization-grant-type: authorization_code
+            scope: openid
+            jwk-set-uri: http://localhost:8888/auth/realms/workout-journal/protocol/openid-connect/certs
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    register-with-eureka: false

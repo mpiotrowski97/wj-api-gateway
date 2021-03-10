@@ -12,7 +12,7 @@ public class ApiGatewayConfig {
     public RouteLocator apiGatewayRoutesConfig(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
                 .route(r -> r.path("/api/v1/exercises*", "/api/v1/exercises/*")
-                        .uri("lb://exercise-service")
+                    .uri("lb://exercise-service")
                         .id("exercise-service")
                 )
                 .build();
