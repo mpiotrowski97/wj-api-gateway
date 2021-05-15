@@ -21,7 +21,7 @@ spring:
           keycloak:
             provider: keycloak
             client-id: wj-api-gateway
-            client-secret: 61ec338b-949c-436e-ae9b-53c981e9eed1
+            client-secret: 262459b2-f82c-49f5-bbd7-59fe85ca04f3
             authorization-grant-type: authorization_code
             scope: openid
             jwk-set-uri: http://localhost:8888/auth/realms/workout-journal/protocol/openid-connect/certs
